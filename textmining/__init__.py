@@ -3,4 +3,5 @@ if __name__ == '__main__':
     sr = SamsungReport()
     #sr.download()
     print(sr.extract_noun())
-    sr.remove_stopword()
+    sr.find_frequence()
+    sr.draw_wordcloud()
