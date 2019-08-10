@@ -29,5 +29,8 @@ class NaverStock:
 
         #날짜가 겹치지 않게 잘보이도록 figsize=(10,4)사이즈 변경
         code_dop_row[['Stock']].plot(figsize=(10,4))
+        plt.title('Stock Value Of '+self.item)
+        plt.xlabel("Date")
+        plt.ylabel("Stock")
         plt.show()
         code_dop_row.to_csv(self.item+'.csv')
