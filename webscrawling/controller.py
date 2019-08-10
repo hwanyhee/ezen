@@ -1,5 +1,6 @@
 from webscrawling.assembly import AssemplyCrawler
 from webscrawling.bugsmusic import  BugsCrawler
+from webscrawling.finance import FinanceCrawler
 
 class Controller:
     def __init__(self):
@@ -11,3 +12,6 @@ class Controller:
         elif flag=='b':
             b = BugsCrawler('https://music.bugs.co.kr/chart/track/realtime/total?chartdate=20190810&charthour=11')
             b.scrap()
+        elif flag=='f':
+            f = FinanceCrawler('https://finance.naver.com/sise/')
+            f.scrap()
