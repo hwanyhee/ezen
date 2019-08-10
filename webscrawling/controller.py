@@ -4,6 +4,7 @@ from webscrawling.finance import FinanceCrawler
 from webscrawling.krx import  Krxcrawler
 from webscrawling.naver_stock import NaverStock
 from webscrawling.naver_movie import NaverMovie
+from webscrawling.naver_login import  NaverLogin
 class Controller:
     def __init__(self):
         pass
@@ -28,3 +29,6 @@ class Controller:
             m = NaverMovie('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
             m.scrap()
 
+        elif flag == 'l':
+            l = NaverLogin('https://nid.naver.com/nidlogin.login')
+            l.autoLogin()

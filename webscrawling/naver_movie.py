@@ -3,9 +3,14 @@ from selenium import webdriver
 
 class NaverMovie:
     def __init__(self,url):
-        driver = webdriver.Chrome('./driver/chromedriver')
-        driver.get(url)
-        self.soup= BeautifulSoup(driver.page_source,'html.parser')
+        self.driver = webdriver.Chrome('./driver/chromedriver')
+        self.driver.get(url)
+        self.soup= BeautifulSoup(self.driver.page_source,'html.parser')
     def scrap(self):
         html = self.soup.prettify()
-        print(html)
+
+        all_div = self.soup.find_all('div', {'class', 'tit3'})
+        print(all_div)
+        for i in [div.a.string for div in all_div]:
+            print(i)
+        self.driver.close()

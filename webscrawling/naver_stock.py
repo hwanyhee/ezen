@@ -33,4 +33,5 @@ class NaverStock:
         plt.xlabel("Date")
         plt.ylabel("Stock")
         plt.show()
+        #csv로 저장하기
         code_dop_row.to_csv(self.item+'.csv')

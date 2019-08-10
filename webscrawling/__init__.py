@@ -7,6 +7,7 @@ if __name__ == '__main__':
         print('k.KRX 크롤링')
         print('n.네이버 주식 크롤링')
         print('m.네이버 영화 크롤링')
+        print('l.네이버 자동 로그인')
         print('0.종료')
         menu = input('메뉴선택?\n')
         if menu == '0':
