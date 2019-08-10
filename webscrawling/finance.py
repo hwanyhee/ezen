@@ -6,5 +6,6 @@ class FinanceCrawler:
     def scrap(self):
         html = urlopen(self.url).read()
         soup = BeautifulSoup(html, 'html.parser')
-        txt = soup.find(id='KOSPI_now').text
-        print(txt)
+        kospi = soup.find(id='KOSPI_now').text
+        kosdaq = soup.find(id='KOSDAQ_now').text
+        print('코스피:{} 코스닥:{}'.format(kospi,kosdaq))
