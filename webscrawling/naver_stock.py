@@ -13,7 +13,12 @@ class NaverStock:
         print(cols)
         #컬럼명 바꾸기
 
-        code.rename(columns={'날짜': 'Date', '종가': 'Value'}, inplace=True)
+        #code.rename(columns={'날짜': 'Date', '종가': 'Value'}, inplace=True)
+        code.columns =['Date','Stock','YesterDay','Time','High','Low','Volumn']
+        #Date컬럼을 인덱스로 설정하기
+        code = code.set_index("Date")
+        #날짜(인덱스) 순으로 내림 차순
+        code.sort_index(ascending=True,inplace=True)
 
         print('[NaN 삭제전]')
         print(code)
@@ -22,6 +27,7 @@ class NaverStock:
         print('[NaN 삭제후]')
         print(code_dop_row)
 
-        code_dop_row[['Date', 'Value']].plot()
+        #날짜가 겹치지 않게 잘보이도록 figsize=(10,4)사이즈 변경
+        code_dop_row[['Stock']].plot(figsize=(10,4))
         plt.show()
         code_dop_row.to_csv(self.item+'.csv')
