@@ -1,7 +1,9 @@
 from webscrawling.assembly import AssemplyCrawler
 from webscrawling.bugsmusic import  BugsCrawler
 from webscrawling.finance import FinanceCrawler
-
+from webscrawling.krx import  Krxcrawler
+from webscrawling.naver_stock import NaverStock
+from webscrawling.naver_movie import NaverMovie
 class Controller:
     def __init__(self):
         pass
@@ -15,3 +17,14 @@ class Controller:
         elif flag=='f':
             f = FinanceCrawler('https://finance.naver.com/sise/')
             f.scrap()
+        elif flag=='k':
+            k = Krxcrawler('http://kind.krx.co.kr/disclosureSimpleSearch.do?method=disclosureSimpleSearchMain')
+            k.scrap()
+        elif flag=='n':
+            code = input('상장코드값?')
+            n = NaverStock(code)
+            n.scrap()
+        elif flag == 'm':
+            m = NaverMovie('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
+            m.scrap()
+
